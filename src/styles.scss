@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    color: white;
+}
+
+body {
+  height: 100vh;
+}
+.weatherCreditsContainer {
+  padding: 5%;
+}
+
+.weatherContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .welcomeContainer {
+        font-weight: 100;
+        margin: 68px;
+        display: flex;
+        justify-content: center;
+        .welcomeMessage {
+            width: 600px;
+            text-align: center;
+            font-size: 30px;
+        }
+    }
+    .titleSearchContainer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        h1 {
+            font-size: 45px;
+        }
+        input {
+            top: 2.25%;
+            border: 2px solid white;
+            background-color: rgba(255, 255, 255, 0.226);
+            border-radius: 15px;
+            padding: 15px 10px;
+            outline: none;
+            font-size: 20px;
+            width:380px;
+            height: 40px;
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+    .dataContainer {
+        margin: 0 auto;
+        .mainInfoContainer {
+            display: flex;
+            justify-content: space-between;
+            img {
+                width: 110px;
+            }
+            h2 {
+                font-size:45px;
+                font-weight:200;
+            }
+            .iconDescriptionContainer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                span {
+                    font-size: 22px;
+                }
+            }
+            .temp {
+                font-size: 80px;
+                font-weight: bold;
+            }
+        }
+    }
+    .extraInfoContainer {
+        display: flex;
+        padding-top: 30px;
+        flex-direction: row;
+        font-size: 20px;
+        gap: 20px;
+        .number {
+            font-weight: 700;
+        }
+    }
+}
+
+.backgroundVideo {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.creditsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 75px auto;
+  align-items: center;
+  width: 283px;
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+// WEB RESPONSIVE DESIGN
+
+@media only screen and (max-width: 900px) {
+  .weatherContainer {
+    .dataContainer {
+      .mainInfoContainer {
+        h2 {
+          max-width: 400px;
+        }
+      }
+    }
+    .extraInfoContainer { 
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .weatherContainer {
+    .welcomeContainer {
+      .welcomeMessage {
+        min-width: 305px;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .weatherCreditsContainer {
+    padding: 2.5%;
+  }
+  .weatherContainer {
+    .titleSearchContainer {
+      h1 {
+        font-size: 40px;
+      }
+      input {
+        width: 300px;
+      }
+    }
+    .dataContainer {
+      .mainInfoContainer {
+        h2 {
+          max-width: 200px;
+          font-size: 26px;
+        }
+        .temp {
+          font-size: 60px;
+        }
+        .iconDescriptionContainer {
+          img {
+            width: 70px;
+          }
+          span {
+            font-size: 20px;
+          }
+        }
+
+      }
+    }
+    .extraInfoContainer { 
+      margin: 0 auto;
+      width: 300px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-size: 19px;
+      }
+    }
+  }
+}
+
+//LOADER
+
+.container {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloud {
+  width: 250px;
+}
+
+.front {
+  padding-top: 45px;
+  margin-left: 25px;
+  display: inline;
+  position: absolute;
+  z-index: 11;
+  animation: clouds 8s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.back {
+  margin-top: -30px;
+  margin-left: 150px;
+  z-index: 12;
+  animation: clouds 12s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.right-front {
+  width: 45px;
+  height: 45px;
+  border-radius: 50% 50% 50% 0%;
+  background-color: #4c9beb;
+  display: inline-block;
+  margin-left: -25px;
+  z-index: 5;
+}
+
+.left-front {
+  width: 65px;
+  height: 65px;
+  border-radius: 50% 50% 0% 50%;
+  background-color: #4c9beb;
+  display: inline-block;
+  z-index: 5;
+}
+
+.right-back {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% 50% 50% 0%;
+  background-color: #4c9beb;
+  display: inline-block;
+  margin-left: -20px;
+  z-index: 5;
+}
+
+.left-back {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 0% 50%;
+  background-color: #4c9beb;
+  display: inline-block;
+  z-index: 5;
+}
+
+.sun {
+  width: 120px;
+  height: 120px;
+  background: -webkit-linear-gradient(to right, #fcbb04, #fffc00);
+  background: linear-gradient(to right, #fcbb04, #fffc00);
+  border-radius: 60px;
+  display: inline;
+  position: absolute;
+}
+
+.sunshine {
+  animation: sunshines 2s infinite;
+}
+
+@keyframes sunshines {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes clouds {
+  0% {
+    transform: translateX(15px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(15px);
+  }
+}
+
+//ALERTS
+
+.Toastify__toast-container {
+  width: 270px;
+}
+.Toastify__toast-theme--dark {
+  background-color: black;
+  border-radius:5px;
+}
+.Toastify__progress-bar {
+  background-color: transparent;
+}
+.Toastify__close-button {
+  display: none;
+}
