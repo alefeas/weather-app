@@ -1,6 +1,5 @@
 import { WeatherInfo } from "./components/WeatherInfo.jsx";
 import { ToastContainer } from 'react-toastify';
-import video from '../src/videos/background-video.mp4'
 import '../src/styles.scss'
 
 export const App = () => {
@@ -8,7 +7,7 @@ export const App = () => {
   return (
     <div className='appContainer'>
       <video className="backgroundVideo" autoPlay muted loop>
-        <source src={video} type="video/mp4"/>
+        <source src='background-video.mp4' type="video/mp4"/>
       </video>
       <div className='weatherCreditsContainer'>
         <WeatherInfo/>
