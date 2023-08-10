@@ -1,6 +1,6 @@
 # Weather App ⛅
 
-Felix es una aplicación web de peliculas y series desarrollada con [**React JS**](https://reactjs.org/). Aquí podrás encontrar diferentes variedades de contenido.
+Weather App es una aplicación web que devuelve el clima en tiempo real de la ubicación que recibe. Desarrollada con [**React JS**](https://reactjs.org/).
 
 <img src="./public/readMeCoverImage.png" width="800">
 
