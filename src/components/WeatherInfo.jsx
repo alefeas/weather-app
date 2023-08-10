@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader } from "./Loader.jsx";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,6 +31,7 @@ export const WeatherInfo = () => {
                         theme: "dark",
                         className: "toast"
                     });
+                    setLoading(false)
                     throw new Error("Network response was not ok")
                 }
                 return response.json();
@@ -42,9 +43,12 @@ export const WeatherInfo = () => {
                 console.error("Error al obtener los datos:", error);
             });
             setCity('')
-            setLoading(false)
         }
     }
+
+    useEffect(() => {
+        setLoading(false)
+    }, [weatherData])
 
     return (
         <div className="weatherContainer">
@@ -55,7 +59,7 @@ export const WeatherInfo = () => {
             {
                 weatherData ?
                 <div className="dataContainer">
-                { loading === false ?
+                { !loading ?
                 <div>
                         <div className="mainInfoContainer">
                             <div>
@@ -91,7 +95,7 @@ export const WeatherInfo = () => {
                         </div>
                 </div>
                 : <Loader/>
-                            }
+                }
                     </div>
                 : 
                 <div className="welcomeContainer">
